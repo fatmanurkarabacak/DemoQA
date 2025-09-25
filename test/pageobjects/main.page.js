@@ -2,7 +2,7 @@ import { $ } from '@wdio/globals';
 
 class MainPage {
     get avatars() {
-        return $('//*[contains(@class, "avatar")]');
+        return $$('//*[contains(@class, "avatar")]');
     }
 }
 
