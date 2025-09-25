@@ -21,8 +21,14 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/web-elements.spec.js'
+        './test/specs/text-box.spec.js'
     ],
+
+    suites: {
+        all: [
+            './test/specs/text-box.spec.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -184,8 +190,83 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs, browser) {
+        // Helper: remove intrusive overlays/ads that may intercept clicks
+        const removeOverlays = async () => {
+            try {
+                await browser.execute(() => {
+                    const selectors = [
+                        'iframe[id^="google_ads_iframe_"]',
+                        'iframe[aria-label="Advertisement"]',
+                        'iframe[data-google-container-id]',
+                        '#fixedban', '.adsbygoogle', '.ad', '[id*="google_ads"]',
+                        'div[style*="z-index"][style*="position: fixed"]'
+                    ];
+                    document.querySelectorAll(selectors.join(','))
+                        .forEach(el => { try { el.remove(); } catch (_) {} });
+                });
+            } catch (e) {
+                // ignore overlay removal failures
+            }
+        };
+
+        // Element-scope safeClick: scroll into view, clear overlays, wait visible/clickable, then click
+        browser.addCommand('safeClick', async function () {
+            try {
+                await this.scrollIntoView({ block: 'center', inline: 'center' });
+            } catch (e) {
+                // ignore scroll failures
+            }
+            // small upward nudge to avoid sticky footers covering the element
+            try { await browser.execute(() => window.scrollBy(0, -120)); } catch (_) {}
+            await removeOverlays();
+            await this.waitForDisplayed({ timeout: 10000 });
+            if (this.waitForClickable) {
+                await this.waitForClickable({ timeout: 10000 });
+            }
+            try {
+                return await this.click();
+            } catch (err) {
+                // as a last resort, use JS click
+                try { return await browser.execute(el => el.click(), this); } catch (_) {}
+                throw err;
+            }
+        }, true);
+
+        // Element-scope safeSetValue: scroll into view, wait visible, then set value
+        browser.addCommand('safeSetValue', async function (value) {
+            try {
+                await this.scrollIntoView({ block: 'center', inline: 'center' });
+            } catch (e) {
+                // ignore scroll failures
+            }
+            await this.waitForDisplayed({ timeout: 10000 });
+            return this.setValue(value);
+        }, true);
+
+        // Overwrite native element.click to always try scroll + waits first
+        browser.overwriteCommand('click', async function (origClick, ...args) {
+            try {
+                await this.scrollIntoView({ block: 'center', inline: 'center' });
+            } catch (e) {
+                // ignore scroll failures
+            }
+            // small upward nudge to avoid sticky footers covering the element
+            try { await browser.execute(() => window.scrollBy(0, -120)); } catch (_) {}
+            await removeOverlays();
+            await this.waitForDisplayed({ timeout: 10000 });
+            if (this.waitForClickable) {
+                await this.waitForClickable({ timeout: 10000 });
+            }
+            try {
+                return await origClick.apply(this, args);
+            } catch (err) {
+                // fallback to JS click if intercepted
+                try { return await browser.execute(el => el.click(), this); } catch (_) {}
+                throw err;
+            }
+        }, true);
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
