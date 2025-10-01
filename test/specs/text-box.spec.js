@@ -20,8 +20,8 @@ describe('Web Elements - Text Box', () => {
     });
 
     it('Verify that all fields are correctly filled out and submitted', async () => {
-        await elementsPage.elementsCheckboxes[0].waitForDisplayed();
-        await elementsPage.elementsCheckboxes[0].click();
+        await elementsPage.elementsOptions[0].waitForDisplayed();
+        await elementsPage.elementsOptions[0].click();
         await elementsPage.fullNameInput.waitForDisplayed();
         await elementsPage.fullNameInput.setValue(NAME);
         await elementsPage.emailInput.waitForDisplayed();

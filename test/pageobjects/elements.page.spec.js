@@ -5,7 +5,7 @@ class ElementsPage {
         return $$('//*[contains(@class, "avatar")]');
     }
 
-    get elementsCheckboxes() {
+    get elementsOptions() {
         return $$('ul.menu-list li.btn.btn-light');
     }
 
@@ -44,6 +44,26 @@ class ElementsPage {
     
     get permanentAddressOutput() {
         return $('p[id="permanentAddress"]');
+    }
+
+    get checkboxes() {
+        return $$('//*[name()="svg"][@class="rct-icon rct-icon-uncheck"]');
+    }
+
+    get checkboxesChecked() {
+        return $$('//*[name()="svg"][@class="rct-icon rct-icon-check"]');
+    }
+
+    get toggleButton() {
+        return $$('//button[@aria-label="Toggle"]');
+    }
+
+    get selectedResults() {
+        return $('//div[@id="result"]');
+    }
+
+    get selectedList() {
+        return $('//span[contains(@class,"text-success")]');
     }
 }
 
