@@ -21,7 +21,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/checkbox.spec.js'
+        './test/specs/radio-button.spec.js'
     ],
 
     suites: {
