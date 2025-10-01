@@ -65,6 +65,29 @@ class ElementsPage {
     get selectedList() {
         return $('//span[contains(@class,"text-success")]');
     }
+
+    //radio-buttons
+    get radioButtons() {
+        return $$('//label[@for="yesRadio"]');
+    }
+
+    get yesRadioButton() {
+        return $('//label[@for="yesRadio"]');
+    }
+
+    get impressiveRadioButton() {
+        return $('//label[@for="impressiveRadio"]');
+    }
+
+    get noRadioButton() {
+        return $('//label[@for="noRadio"]');
+    }
+
+    get selectedRadioButton() {
+        return $('//span[contains(@class,"text-success")]');
+    }
+
+
 }
 
 export default new ElementsPage();
