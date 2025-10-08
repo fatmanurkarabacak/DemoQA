@@ -21,13 +21,14 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/radio-button.spec.js'
+        './test/specs/web-tables.spec.js'
     ],
 
     suites: {
         all: [
             './test/specs/text-box.spec.js',
-            './test/specs/checkbox.spec.js'
+            './test/specs/checkbox.spec.js',
+            './test/specs/web-tables.spec.js'
         ]
     },
     // Patterns to exclude.
