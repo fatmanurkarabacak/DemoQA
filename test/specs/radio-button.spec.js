@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import mainPage from '../pageobjects/main.page';
-import { ELEMENTS_URL, BASE_URL, RADIO_BUTTON_URL } from '../config/urls';
+import { BASE_URL, RADIO_BUTTON_URL } from '../config/urls';
 import { browser } from '@wdio/globals';
 import { before } from 'mocha';
-import elementsPage from '../pageobjects/elements.page.spec';
+import elementsPage from '../pageobjects/elements.page';
 
 
 describe('Web Elements - Radio Button', () => {
