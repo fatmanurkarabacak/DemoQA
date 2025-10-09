@@ -3,6 +3,7 @@ export const ELEMENTS_URL = `${BASE_URL}/elements`;
 export const CHECKBOX_URL = `${BASE_URL}/checkbox`;
 export const RADIO_BUTTON_URL = `${BASE_URL}/radio-button`;
 export const WEB_TABLES_URL = `${BASE_URL}/webtables`;
+export const BUTTONS_URL = `${BASE_URL}/buttons`;
 
 export default {
     BASE_URL,
@@ -10,6 +11,7 @@ export default {
     CHECKBOX_URL,
     RADIO_BUTTON_URL,
     WEB_TABLES_URL,
+    BUTTONS_URL,
 };
 
 
