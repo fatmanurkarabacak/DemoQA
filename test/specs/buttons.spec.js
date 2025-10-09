@@ -3,8 +3,8 @@ import mainPage from '../pageobjects/main.page';
 import { BASE_URL, BUTTONS_URL } from '../config/urls';
 import { browser } from '@wdio/globals';
 import { before } from 'mocha';
-import elementsPage from '../pageobjects/elements.page.spec';
-import buttonsPage from '../pageobjects/buttons.page.spec';
+import elementsPage from '../pageobjects/elements.page';
+import buttonsPage from '../pageobjects/buttons.page';
 
 describe('Web Elements - Buttons', () => {
 

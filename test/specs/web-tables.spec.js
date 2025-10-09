@@ -3,8 +3,8 @@ import mainPage from '../pageobjects/main.page';
 import { BASE_URL, WEB_TABLES_URL } from '../config/urls';
 import { browser } from '@wdio/globals';
 import { before } from 'mocha';
-import elementsPage from '../pageobjects/elements.page.spec';
-import webTablesPage from '../pageobjects/web-tables.page.spec';
+import elementsPage from '../pageobjects/elements.page';
+import webTablesPage from '../pageobjects/web-tables.page';
 import { EMAIL, AGE, LASTNAME, SALARY, DEPARTMENT, FIRSTNAME } from '../config/userInformationData';
 
 
