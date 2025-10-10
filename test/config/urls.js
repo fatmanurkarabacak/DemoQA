@@ -5,6 +5,7 @@ export const RADIO_BUTTON_URL = `${BASE_URL}/radio-button`;
 export const WEB_TABLES_URL = `${BASE_URL}/webtables`;
 export const BUTTONS_URL = `${BASE_URL}/buttons`;
 export const LINKS_URL = `${BASE_URL}/links`;
+export const BROKEN_LINKS_AND_IMAGES_URL = `${BASE_URL}/broken`;
 
 export default {
     BASE_URL,
@@ -14,6 +15,7 @@ export default {
     WEB_TABLES_URL,
     BUTTONS_URL,
     LINKS_URL,
+    BROKEN_LINKS_AND_IMAGES_URL,
 };
 
 
