@@ -1,0 +1,4 @@
+"DESCRİPTİON","DURATİON İN MS","NAME","PARENT SUİTE","START TİME","STATUS","STOP TİME","SUB SUİTE","SUİTE","TEST CLASS","TEST METHOD"
+"","280","Verifies loading states of valid and broken images","Web Elements - Broken Links and Images","Wed Oct 15 15:48:29 TRT 2025","passed","Wed Oct 15 15:48:30 TRT 2025","","","",""
+"","3980","Verify that the links icon redirects to the correct page","Web Elements - Broken Links and Images","Wed Oct 15 15:48:25 TRT 2025","passed","Wed Oct 15 15:48:29 TRT 2025","","","",""
+"","4977","Verify that the valid and broken link are working correctly","Web Elements - Broken Links and Images","Wed Oct 15 15:48:30 TRT 2025","passed","Wed Oct 15 15:48:35 TRT 2025","","","",""
