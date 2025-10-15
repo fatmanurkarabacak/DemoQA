@@ -6,6 +6,7 @@ export const WEB_TABLES_URL = `${BASE_URL}/webtables`;
 export const BUTTONS_URL = `${BASE_URL}/buttons`;
 export const LINKS_URL = `${BASE_URL}/links`;
 export const BROKEN_LINKS_AND_IMAGES_URL = `${BASE_URL}/broken`;
+export const UPLOAD_DOWNLOAD_URL = `${BASE_URL}/upload-download`;
 
 export default {
     BASE_URL,
@@ -16,6 +17,7 @@ export default {
     BUTTONS_URL,
     LINKS_URL,
     BROKEN_LINKS_AND_IMAGES_URL,
-};
+    UPLOAD_DOWNLOAD_URL,
+    };
 
 
