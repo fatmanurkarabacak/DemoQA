@@ -21,7 +21,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/uploadDownload.spec.js'
+        './test/specs/dynamic-properties.spec.js'
     ],
 
     suites: {
